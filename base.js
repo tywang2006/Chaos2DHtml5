@@ -15,5 +15,3 @@ core.inherit = function(childClass, superClass)
     childClass.prototype = new tempConstructor();
     childClass.prototype.constructor = childClass;    
 }
-
-core.graphics = new CoreCanvas(1200,800);
