@@ -1,7 +1,7 @@
 (function(){
-    
+
 var NameUtil = { _counter:0 };
-Chaos2D.NameUtil = NameUtil;
+core.NameUtil = NameUtil;
 
 NameUtil.getUID = function()
 {
@@ -28,4 +28,4 @@ NameUtil.displayObjectName = function(displayObject)
         
 }
     
-}    
+})()    

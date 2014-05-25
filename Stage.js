@@ -17,11 +17,10 @@ core.Stage = Stage;
     
 Stage.prototype.setFrameRate = function(frameRate)
 {
-    if(this_frameRate == frameRate) return;
+    if(this._frameRate == frameRate) return;
     this._frameRate = frameRate;
     if(this._intervalID != null)clearInterval(this._intervalID);
-    this._intervalID = setInterval
-    
+    this._intervalID = setInterval(core.delegate(this._enterFrame, this), 1000/this._frameRate);
 }
 
 Stage.prototype._enterFrame = function()
@@ -37,7 +36,7 @@ Stage.prototype._enterFrame = function()
 
 Stage.prototype.render = function(context, rect)
 {
-    if(!context) contex = this.context;
+    if(!context) context = this.context;
     if(rect) this.clear(rect.x,rect.y,rect.width,rect.height);
     else this.clear();
     Stage.super.render.call(this,context);  

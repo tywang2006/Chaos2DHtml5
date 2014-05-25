@@ -3,7 +3,7 @@
 var Bitmap = function(image, frame)
 {
     core.DisplayObject.call(this);
-    this.name = NameUtil.createUniqueName("Bitmap");
+    this.name = core.NameUtil.createUniqueName("Bitmap");
     this.image = image;
     if(!frame) this.frame = [0,0,image.width,image.height];
     else this.frame = frame;

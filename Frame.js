@@ -18,4 +18,4 @@ Frame.prototype.render = function(context, x, y)
     this.displayObject._render(context,false,false);
 }
     
-})()
+})();

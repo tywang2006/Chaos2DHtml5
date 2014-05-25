@@ -4,10 +4,10 @@
 	function mapClass(className, host)
 	{
 		if(window[className] != undefined) conflictMap[className] = window[className];
-		cacheMap[className] = window[className] = (host || Chaos2D)[className];
+		cacheMap[className] = window[className] = (host || core)[className];
 	}
 
-	casual.noConflict = function()
+	core.noConflict = function()
 	{
 		for(var p in cacheMap) 
 		{

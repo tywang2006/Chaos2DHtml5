@@ -3,7 +3,7 @@
 var MovieClip = function(frames)
 {
     core.Sprite.call(this);
-    this.name = NameUtil.createUniqueName("MovieClip");  
+    this.name = core.NameUtil.createUniqueName("MovieClip");  
     this._frameLabels = {};
     this._frames = [];
     this.currentFrame = 1;

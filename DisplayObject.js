@@ -2,7 +2,8 @@
 
 var DisplayObject = function()
 {
-    this.name = NameUtil.createUniqueName("DisplayObject");
+    this.name = core.NameUtil.createUniqueName("DisplayObject");
+
     this.id = null;
     this.x = 0;
     this.y = 0;
@@ -89,7 +90,7 @@ DisplayObject.prototype._render = function(context, noTransform, globalTransform
     if(!this.visible || this.alpha<=0 || this.scaleX == 0 || this.scaleY == 0) return;
     context.save();
     if(!noTransform) this._transform(context,globalTransform);
-    this.render();
+    this.render(context);
     context.restore();
 }
 
