@@ -10,6 +10,7 @@ var Stage = function(context)
     this._pauseInNextFrame = false;
     this._intervalID = null;
     this.setFrameRate(20);
+    this._frameCallback = [];
 }
 
 core.inherit(Stage, core.DisplayObjectContainer);
@@ -32,6 +33,15 @@ Stage.prototype._enterFrame = function()
         clearInterval(this._intervalID);
         this._intervalID = null;
     }    
+    for(var i = 0, len = this._frameCallback.length; i < len; i++)
+    {
+        this._frameCallback[i].apply();
+    } 
+}
+
+Stage.prototype.addFrameCallback = function(func, self, args)
+{
+    this._frameCallback[this._frameCallback.length] = core.delegate(func, self, args);
 }
 
 Stage.prototype.render = function(context, rect)
